@@ -4,12 +4,13 @@
 # pillow
 # ultralytics
 # # torch  ← instala según CPU/GPU (abajo te digo cómo)
-fastapi
-uvicorn[standard]
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
 pillow
 numpy
-ultralytics
+ultralytics==8.3.225
 python-multipart
-torch==2.3.1+cpu ; sys_platform == 'linux'
 
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.3.1
 

@@ -88,3 +88,8 @@ async def predict(
             ))
 
     return PredictResponse(detections=dets)
+
+@app.get("/health")
+def health():
+    import torch
+    return {"ok": True, "device": "cuda" if torch.cuda.is_available() else "cpu"}

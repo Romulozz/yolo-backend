@@ -9,6 +9,7 @@ uvicorn[standard]
 pillow
 numpy
 ultralytics
+python-multipart
 torch==2.3.1+cpu ; sys_platform == 'linux'
 
 

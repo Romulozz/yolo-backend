@@ -1,0 +1,14 @@
+# fastapi
+# uvicorn[standard]
+# python-multipart
+# pillow
+# ultralytics
+# # torch  ← instala según CPU/GPU (abajo te digo cómo)
+fastapi
+uvicorn[standard]
+pillow
+numpy
+ultralytics
+torch==2.3.1+cpu ; sys_platform == 'linux'
+
+

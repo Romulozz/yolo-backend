@@ -6,6 +6,7 @@ from typing import List, Optional
 from PIL import Image
 from ultralytics import YOLO
 import io, os, torch
+import numpy as np
 
 # === Config ===
 MODEL_PATH = os.getenv("MODEL_PATH", "models/mi_detector_v1.pt")  # pon aquí tu archivo
@@ -93,3 +94,10 @@ async def predict(
 def health():
     import torch
     return {"ok": True, "device": "cuda" if torch.cuda.is_available() else "cpu"}
+
+@app.get("/warmup")
+def warmup():
+    # imagen negra 640x640
+    img = Image.fromarray(np.zeros((640, 640, 3), dtype=np.uint8))
+    _ = model.predict(img, imgsz=640, conf=0.25, device=DEVICE, verbose=False)
+    return {"ok": True}
